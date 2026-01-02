@@ -1,16 +1,21 @@
 {
-  "node_id": "arch-angel-node",
+  "node_id": "xksh808dsh-node",
+  "display_name": "xksh808dsh M1M Node",
+  "version": "1.0.0",
+  
   "services": [
     {
       "id": "arch-angel-agent-service",
       "name": "ARCH ANGEL by xksh808dsh",
       "type": "agent_service",
-      "url": "https://your-endpoint/api",
+      "url": "https://your-endpoint/api/arch-angel",
       "capabilities": [
         "code-generation",
         "blueprint-creation",
         "workflow-automation",
-        "multi-channel-fanout"
+        "multi-channel-fanout",
+        "genspark-pages",
+        "metagpt-projects"
       ],
       "auth": {
         "mode": "token",
@@ -18,17 +23,49 @@
       },
       "routing": {
         "mesh_exposed": true,
+        "priority": "high",
+        "region_affinity": ["us-west", "apac"]
+      },
+      "billing_metric": "agent_execution"
+    },
+    {
+      "id": "spark-agent-service",
+      "name": "SPARK by xksh808dsh",
+      "type": "agent_service",
+      "url": "https://your-endpoint/api/spark",
+      "capabilities": [
+        "deep-web-research",
+        "realtime-search",
+        "code-execution",
+        "image-generation",
+        "data-extraction",
+        "content-creation"
+      ],
+      "auth": {
+        "mode": "token",
+        "env_var": "SPARK_TOKEN"
+      },
+      "routing": {
+        "mesh_exposed": true,
         "priority": "normal",
         "region_affinity": ["us-west", "apac"]
-      }
+      },
+      "billing_metric": "agent_execution"
     }
   ],
+  
   "sgn6g_layers": ["G1", "G2", "G3", "G5", "G6"],
+  
   "mecca_integration": {
     "MeccaID": true,
     "MeccaPay": true,
     "MeccaMesh": true,
     "MeccaSync": true,
     "MeccaDeploy": true
-  }
+  },
+  
+  "marketplace_listings": [
+    "arch-angel",
+    "spark-agent"
+  ]
 }
