@@ -1,0 +1,34 @@
+{
+  "node_id": "arch-angel-node",
+  "services": [
+    {
+      "id": "arch-angel-agent-service",
+      "name": "ARCH ANGEL by xksh808dsh",
+      "type": "agent_service",
+      "url": "https://your-endpoint/api",
+      "capabilities": [
+        "code-generation",
+        "blueprint-creation",
+        "workflow-automation",
+        "multi-channel-fanout"
+      ],
+      "auth": {
+        "mode": "token",
+        "env_var": "ARCH_ANGEL_TOKEN"
+      },
+      "routing": {
+        "mesh_exposed": true,
+        "priority": "normal",
+        "region_affinity": ["us-west", "apac"]
+      }
+    }
+  ],
+  "sgn6g_layers": ["G1", "G2", "G3", "G5", "G6"],
+  "mecca_integration": {
+    "MeccaID": true,
+    "MeccaPay": true,
+    "MeccaMesh": true,
+    "MeccaSync": true,
+    "MeccaDeploy": true
+  }
+}
