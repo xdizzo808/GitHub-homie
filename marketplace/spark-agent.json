@@ -1,0 +1,154 @@
+{
+  "id": "spark-agent",
+  "display_name": "SPARK by xksh808dsh",
+  "tagline": "Super Powered AI Research & Knowledge Agent",
+  "type": "agent_pack",
+  "category": "agents/research",
+  "visibility": "public",
+  "publisher": "xksh808dsh",
+  "version": "1.0.0",
+  "description": "A Genspark/Perplexity-style super agent with deep web research, code execution, and image generation capabilities. Powered by meccamobilenetwork/m1m.",
+  
+  "requirements": {
+    "min_node_version": "1.0.0",
+    "capabilities": [
+      "g1-generate",
+      "g2-grid",
+      "g3-grow"
+    ]
+  },
+  
+  "tools": [
+    {
+      "id": "exa_search",
+      "name": "Web Search",
+      "type": "exa",
+      "description": "Real-time web search with AI"
+    },
+    {
+      "id": "exa_research",
+      "name": "Deep Research",
+      "type": "exa",
+      "description": "Multi-step research on complex topics"
+    },
+    {
+      "id": "exa_get_contents",
+      "name": "Get Web Content",
+      "type": "exa",
+      "description": "Extract content from any webpage"
+    },
+    {
+      "id": "firecrawl_scrape",
+      "name": "Scrape Website",
+      "type": "firecrawl",
+      "description": "Scrape and extract website data"
+    },
+    {
+      "id": "firecrawl_extract",
+      "name": "Extract Data",
+      "type": "firecrawl",
+      "description": "Extract structured data from pages"
+    },
+    {
+      "id": "tavily_search",
+      "name": "AI Search",
+      "type": "tavily",
+      "description": "Advanced AI-powered search"
+    },
+    {
+      "id": "function_execute",
+      "name": "Run Code",
+      "type": "function",
+      "description": "Execute JavaScript/Python code"
+    },
+    {
+      "id": "image_generator",
+      "name": "Generate Image",
+      "type": "image_generator",
+      "description": "Create AI images with DALL-E 3"
+    }
+  ],
+  
+  "capabilities": [
+    "deep_web_research",
+    "realtime_search",
+    "code_generation",
+    "code_execution",
+    "image_generation",
+    "data_extraction",
+    "content_creation",
+    "multi_source_synthesis"
+  ],
+  
+  "pricing": {
+    "model": "subscription_plus_usage",
+    "plans": [
+      {
+        "id": "free",
+        "name": "Free",
+        "monthly_price_usd": 0,
+        "limits": {
+          "agent_executions": 100,
+          "searches": 50,
+          "images": 10
+        }
+      },
+      {
+        "id": "creator",
+        "name": "Creator",
+        "monthly_price_usd": 9,
+        "limits": {
+          "agent_executions": 1000,
+          "searches": 500,
+          "images": 100
+        }
+      },
+      {
+        "id": "pro",
+        "name": "Pro",
+        "monthly_price_usd": 29,
+        "limits": {
+          "agent_executions": 10000,
+          "searches": 5000,
+          "images": 500
+        }
+      },
+      {
+        "id": "enterprise",
+        "name": "Enterprise",
+        "monthly_price_usd": 99,
+        "limits": {
+          "agent_executions": -1,
+          "searches": -1,
+          "images": -1
+        }
+      }
+    ],
+    "usage": {
+      "agent_execution_usd": 0.002,
+      "search_usd": 0.001,
+      "image_usd": 0.04
+    }
+  },
+  
+  "assets": {
+    "hero_image_url": "https://your-cdn/spark-hero.png",
+    "docs_url": "https://github.com/xdizzo808/GitHub-homie",
+    "demo_url": "https://sim.ai"
+  },
+  
+  "install": {
+    "flows": [
+      {
+        "id": "default-setup",
+        "name": "Default SPARK setup",
+        "actions": [
+          {
+            "type": "register_service",
+            "service_ref": "spark-agent-service"
+          }
+        ]
+      }
+    ]
+  }
+}
