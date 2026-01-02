@@ -1,0 +1,57 @@
+{
+  "id": "pivot-labs-agent-service",
+  "display_name": "pivOt labs by xksh808dsh",
+  "description": "A lab of production-grade agents and workflows, powered by meccamobilenetwork/m1m.",
+  "endpoints": [
+    {
+      "id": "run-agent",
+      "path": "/agent/run",
+      "method": "POST",
+      "description": "Execute a single agent task.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "agent_id": { "type": "string" },
+          "payload": { "type": "object" }
+        },
+        "required": ["agent_id", "payload"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "run_id": { "type": "string" },
+          "status": { "type": "string" },
+          "result": {}
+        }
+      },
+      "billing_metric": "agent_execution"
+    },
+    {
+      "id": "run-workflow",
+      "path": "/workflow/run",
+      "method": "POST",
+      "description": "Trigger a multi-step workflow.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "workflow_id": { "type": "string" },
+          "payload": { "type": "object" }
+        },
+        "required": ["workflow_id"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "workflow_run_id": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      },
+      "billing_metric": "workflow_run"
+    }
+  ],
+  "auth": {
+    "mode": "token",
+    "header_name": "Authorization",
+    "scheme": "Bearer"
+  }
+}
