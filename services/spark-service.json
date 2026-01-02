@@ -1,0 +1,90 @@
+{
+  "id": "spark-agent-service",
+  "display_name": "SPARK by xksh808dsh",
+  "description": "Super Powered AI Research & Knowledge agent with web search, code execution, and image generation.",
+  
+  "endpoints": [
+    {
+      "id": "run-spark",
+      "path": "/spark/run",
+      "method": "POST",
+      "description": "Execute a SPARK agent task with full tool access.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string", "description": "The user query or task" },
+          "tools": { 
+            "type": "array", 
+            "items": { "type": "string" },
+            "description": "Optional: specific tools to use (search, research, scrape, code, image)"
+          },
+          "context": { "type": "object", "description": "Optional: additional context" }
+        },
+        "required": ["query"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "run_id": { "type": "string" },
+          "status": { "type": "string" },
+          "result": { "type": "string" },
+          "sources": { "type": "array" },
+          "images": { "type": "array" },
+          "code_outputs": { "type": "array" }
+        }
+      },
+      "billing_metric": "agent_execution"
+    },
+    {
+      "id": "search",
+      "path": "/spark/search",
+      "method": "POST",
+      "description": "Perform AI-powered web search.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" },
+          "depth": { "type": "string", "enum": ["quick", "standard", "deep"] }
+        },
+        "required": ["query"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "results": { "type": "array" },
+          "summary": { "type": "string" }
+        }
+      },
+      "billing_metric": "search"
+    },
+    {
+      "id": "generate-image",
+      "path": "/spark/image",
+      "method": "POST",
+      "description": "Generate AI images with DALL-E 3.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "prompt": { "type": "string" },
+          "size": { "type": "string", "enum": ["1024x1024", "1792x1024", "1024x1792"] },
+          "style": { "type": "string", "enum": ["vivid", "natural"] }
+        },
+        "required": ["prompt"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "image_url": { "type": "string" },
+          "revised_prompt": { "type": "string" }
+        }
+      },
+      "billing_metric": "image"
+    }
+  ],
+  
+  "auth": {
+    "mode": "token",
+    "header_name": "Authorization",
+    "scheme": "Bearer"
+  }
+}
