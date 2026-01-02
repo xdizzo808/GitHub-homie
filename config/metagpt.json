@@ -1,0 +1,133 @@
+{
+  "id": "metagpt-integration",
+  "version": "1.0.0",
+  "description": "MetaGPT multi-agent framework integration for ARCH ANGEL",
+  
+  "framework": {
+    "description": "Simulates a software company with role-based agents",
+    "features": [
+      "role_based_agents",
+      "sop_workflows",
+      "artifact_generation",
+      "memory_systems",
+      "action_pipelines"
+    ]
+  },
+  
+  "roles": {
+    "ProductManager": {
+      "responsibilities": ["requirements_analysis", "prd_generation", "stakeholder_communication"],
+      "outputs": ["PRD", "user_stories", "acceptance_criteria"]
+    },
+    "Architect": {
+      "responsibilities": ["system_design", "api_design", "data_modeling", "tech_selection"],
+      "outputs": ["architecture_diagram", "api_spec", "data_schema"]
+    },
+    "ProjectManager": {
+      "responsibilities": ["task_breakdown", "scheduling", "coordination", "risk_management"],
+      "outputs": ["task_list", "timeline", "resource_allocation"]
+    },
+    "Engineer": {
+      "responsibilities": ["code_implementation", "debugging", "code_review", "optimization"],
+      "outputs": ["source_code", "documentation", "changelog"]
+    },
+    "QAEngineer": {
+      "responsibilities": ["test_generation", "quality_assurance", "bug_reporting", "test_automation"],
+      "outputs": ["test_cases", "test_results", "bug_reports"]
+    },
+    "Researcher": {
+      "responsibilities": ["information_gathering", "analysis", "competitive_research", "trend_analysis"],
+      "outputs": ["research_report", "recommendations", "data_analysis"]
+    }
+  },
+  
+  "commands": {
+    "metagpt:project": {
+      "description": "Generate full project with all roles",
+      "input": "__tag_idea",
+      "output": "complete_project_structure"
+    },
+    "metagpt:role": {
+      "description": "Generate custom role definition",
+      "input": "__tag_name",
+      "output": "role_config_json"
+    },
+    "metagpt:workflow": {
+      "description": "Generate SOP workflow",
+      "input": "__tag_process",
+      "output": "workflow_definition"
+    },
+    "metagpt:prd": {
+      "description": "Generate PRD document",
+      "input": "__tag_requirement",
+      "output": "prd_markdown"
+    },
+    "metagpt:design": {
+      "description": "Generate system architecture",
+      "input": "__tag_system",
+      "output": "architecture_spec"
+    }
+  },
+  
+  "artifacts": {
+    "PRD": {
+      "format": "markdown",
+      "sections": ["overview", "goals", "user_stories", "requirements", "constraints", "timeline"]
+    },
+    "SystemDesign": {
+      "format": "json+diagrams",
+      "sections": ["architecture", "components", "apis", "data_models", "integrations"]
+    },
+    "TaskList": {
+      "format": "json",
+      "fields": ["id", "title", "description", "assignee", "priority", "dependencies", "estimate"]
+    },
+    "CodeFiles": {
+      "format": "source_code",
+      "structure": ["src/", "tests/", "docs/", "config/"]
+    },
+    "Tests": {
+      "format": "test_files",
+      "types": ["unit", "integration", "e2e"]
+    },
+    "Documentation": {
+      "format": "markdown",
+      "sections": ["readme", "api_docs", "setup_guide", "contributing"]
+    }
+  },
+  
+  "workflow_template": {
+    "phases": [
+      {
+        "name": "Requirements",
+        "roles": ["ProductManager", "Researcher"],
+        "outputs": ["PRD", "research_report"]
+      },
+      {
+        "name": "Design",
+        "roles": ["Architect"],
+        "outputs": ["SystemDesign", "api_spec"]
+      },
+      {
+        "name": "Planning",
+        "roles": ["ProjectManager"],
+        "outputs": ["TaskList", "timeline"]
+      },
+      {
+        "name": "Implementation",
+        "roles": ["Engineer"],
+        "outputs": ["CodeFiles", "documentation"]
+      },
+      {
+        "name": "Testing",
+        "roles": ["QAEngineer"],
+        "outputs": ["Tests", "test_results"]
+      },
+      {
+        "name": "Review",
+        "roles": ["all"],
+        "outputs": ["final_deliverable"]
+      }
+    ]
+  }
+}
