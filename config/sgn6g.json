@@ -1,0 +1,63 @@
+{
+  "specification": "SGN6G",
+  "version": "1.0.0",
+  "layers": {
+    "G1": {
+      "name": "Generate",
+      "function": "Create content, ideas, offers",
+      "capabilities": ["text_generation", "image_generation", "content_creation"]
+    },
+    "G2": {
+      "name": "Grid",
+      "function": "Connect agents and services",
+      "capabilities": ["agent_registry", "service_mesh", "api_gateway"]
+    },
+    "G3": {
+      "name": "Grow",
+      "function": "Feedback loops and optimization",
+      "capabilities": ["analytics", "ab_testing", "optimization"]
+    },
+    "G4": {
+      "name": "Govern",
+      "function": "Policies and brand safety",
+      "capabilities": ["content_moderation", "rate_limiting", "access_control"]
+    },
+    "G5": {
+      "name": "Syndicate",
+      "function": "Distribution and monetization",
+      "capabilities": ["marketplace", "billing", "revenue_share"]
+    },
+    "G6": {
+      "name": "Signal",
+      "function": "Connectivity and presence",
+      "capabilities": ["realtime_messaging", "webhooks", "notifications"]
+    }
+  },
+  "node_types": {
+    "phone": {
+      "name": "Phone Node",
+      "platform": "Android/Termux",
+      "layers": ["G1", "G2", "G3", "G5", "G6"],
+      "use_case": "Mobile-first creators"
+    },
+    "hotspot": {
+      "name": "Hotspot Node",
+      "platform": "WiFi Hub",
+      "layers": ["G2", "G3", "G4", "G5", "G6"],
+      "use_case": "Network hub with captive portal"
+    },
+    "cloud": {
+      "name": "Cloud Node",
+      "platform": "Cloud/Enterprise",
+      "layers": ["G1", "G2", "G3", "G4", "G5", "G6"],
+      "use_case": "Enterprise broadcast brain"
+    }
+  },
+  "global_services": {
+    "MeccaID": "Node/agent/service identity registry",
+    "MeccaPay": "Billing engine, subscriptions, usage tracking",
+    "MeccaMesh": "Intelligent service router (latency-aware, cost-optimized)",
+    "MeccaSync": "Data synchronization across nodes",
+    "MeccaDeploy": "Node deployment playbooks"
+  }
+}
